@@ -16,9 +16,11 @@ taro+taro ui 模板
 
 1. $ npm install -g @tarojs/cli
 
-# OR
+OR
 
-$ yarn global add @tarojs/cli
+```
+  $ yarn global add @tarojs/cli
+```
 
 2. $ yarn install
 
