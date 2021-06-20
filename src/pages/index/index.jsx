@@ -3,8 +3,9 @@ import { useState, useEffect } from "react";
 import { useObserver, useLocalStore } from "mobx-react";
 import { View, Text, Picker } from "@tarojs/components";
 import { AtButton, AtList, AtListItem } from "taro-ui";
-import TimesPicker from "../../utils/dateTimePicker";
-import store from "../../store";
+import store from "@/store";
+import TimesPicker from "@/utils/dateTimePicker";
+// import { cloneDeep } from "@/utils/common";
 import "./index.less";
 const { dateTimePicker, generateTimeStr } = TimesPicker;
 
@@ -31,10 +32,22 @@ const Index = (props) => {
   return useObserver(() => (
     <View className="index">
       <Text>{localStore.text}</Text>
+      {localStore.dafultData.child.map((item, index) => (
+        <View key={index}>{item.name}</View>
+      ))}
       <AtButton
         type="primary"
         onClick={() => {
-          localStore.setText("李四");
+          localStore.setText("天哥");
+          localStore.setDafultData({
+            ...localStore.dafultData,
+            child: [
+              {
+                name: "new",
+                child: [],
+              },
+            ],
+          });
           Taro.navigateTo({ url: "/pages/test/index?id=2&type=test" });
         }}
       >

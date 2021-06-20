@@ -1,3 +1,4 @@
+const path = require("path");
 const config = {
   projectName: "taro-wxapp",
   date: "2021-6-16",
@@ -14,6 +15,9 @@ const config = {
   copy: {
     patterns: [],
     options: {},
+  },
+  alias: {
+    "@": path.resolve(__dirname, "..", "src"),
   },
   framework: "react",
   mini: {

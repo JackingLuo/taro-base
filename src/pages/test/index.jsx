@@ -4,9 +4,9 @@ import { useObserver, useLocalStore } from "mobx-react";
 import { getCurrentInstance } from "@tarojs/taro";
 import { View, Text, Picker } from "@tarojs/components";
 import { AtForm, AtInput, AtButton, AtList, AtListItem } from "taro-ui";
-import Validate from "../../utils/validate";
+import Validate from "@/utils/validate";
 import schemas from "./validateSchemas";
-import store from "../../store";
+import store from "@/store";
 import "./index.less";
 
 const Test = (props) => {
@@ -18,7 +18,13 @@ const Test = (props) => {
   }, []);
   return useObserver(() => (
     <View>
-      <Text>{localStore.text}</Text>
+      <Text
+        onClick={() => {
+          localStore.setText("store变化了");
+        }}
+      >
+        {localStore.text}
+      </Text>
       <AtForm>
         <AtInput
           required
