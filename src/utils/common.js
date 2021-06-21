@@ -1,5 +1,5 @@
 /**公共方法 */
-//
+//深拷贝方法
 export const cloneDeep = (obj) => {
   if (typeof obj == null) return obj;
   //是否为日期Date
